@@ -1,0 +1,132 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-maroon: var(--maroon);
+  --color-maroon-deep: var(--maroon-deep);
+  --color-leaf: var(--leaf);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-tamil: "Noto Serif Tamil", serif;
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Brand */
+  --maroon: oklch(0.38 0.13 22);        /* #7A1F1F */
+  --maroon-deep: oklch(0.30 0.11 22);   /* darker */
+  --gold: oklch(0.72 0.12 82);          /* #C9A24C */
+  --gold-light: oklch(0.87 0.11 88);    /* #F0D78C */
+  --leaf: oklch(0.48 0.11 145);         /* #2E6B3A */
+  --cream: oklch(0.98 0.02 85);         /* #FDF7E9 */
+  --ink: oklch(0.18 0.03 40);
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--maroon);
+  --primary-foreground: var(--cream);
+  --secondary: var(--gold);
+  --secondary-foreground: var(--maroon-deep);
+  --muted: oklch(0.95 0.02 80);
+  --muted-foreground: oklch(0.45 0.03 40);
+  --accent: var(--gold-light);
+  --accent-foreground: var(--maroon-deep);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.85 0.04 80);
+  --input: oklch(0.90 0.03 80);
+  --ring: var(--gold);
+}
+
+.dark {
+  --background: oklch(0.15 0.02 40);
+  --foreground: var(--cream);
+  --card: oklch(0.20 0.04 30);
+  --card-foreground: var(--cream);
+  --popover: oklch(0.20 0.04 30);
+  --popover-foreground: var(--cream);
+  --primary: var(--gold);
+  --primary-foreground: var(--maroon-deep);
+  --secondary: var(--maroon);
+  --secondary-foreground: var(--cream);
+  --muted: oklch(0.25 0.03 30);
+  --muted-foreground: oklch(0.70 0.02 80);
+  --accent: var(--maroon);
+  --accent-foreground: var(--cream);
+  --border: oklch(0.30 0.04 40);
+  --input: oklch(0.30 0.04 40);
+  --ring: var(--gold);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility gold-gradient {
+  background: linear-gradient(135deg, #C9A24C 0%, #F0D78C 50%, #C9A24C 100%);
+}
+
+@utility text-gold-gradient {
+  background: linear-gradient(135deg, #E8C877 0%, #F5E1A4 50%, #C9A24C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility maroon-gradient {
+  background: linear-gradient(135deg, #7A1F1F 0%, #B02323 50%, #5A1414 100%);
+}
+
+@utility filigree-border {
+  border-image: linear-gradient(90deg, transparent, #C9A24C, transparent) 1;
+}
